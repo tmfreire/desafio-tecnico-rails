@@ -5,12 +5,8 @@
 
       <% if @bug.category.present? %>
         <div class="list-group">
-          <% @bug.category do |category| %>
-            <li class="list-group-item">
-              <p><%= @category.name %></p>
-              <p><%= @category.age %></p>
-            </li>
-          <% end %>
+              <p><strong>Prioridade:</strong></p><p><%= @bug.category.name %></p>
+              <p><strong>Idade:</strong></p><p><%= @bug.category.age %></p>
         </div>
       <% else %>
 
