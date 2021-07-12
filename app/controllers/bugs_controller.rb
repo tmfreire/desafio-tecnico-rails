@@ -1,5 +1,6 @@
 class BugsController < ApplicationController
-    def index
+
+  def index
     @bugs = Bug.all
   end
 
@@ -17,8 +18,12 @@ class BugsController < ApplicationController
     if @bug.save
       redirect_to bug_path(@bug)
     else
-      render "new"
+      render 'new'
     end
+  end
+
+  def show_todaysbugs
+    @bugs.todaysbugs
   end
 
   private

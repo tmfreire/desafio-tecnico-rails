@@ -6,11 +6,25 @@ class CategoriesController < ApplicationController
     if @category.save
       redirect_to bug_path(@bug)
     else
-      render "bug/show"
+      render 'bug/show'
     end
   end
 
-  def show
+  def today?
+    # @category.update(today: true)
+    if params[:name] == 'normal' && params[:age] >= 3
+      true
+    elsif params[:name] == 'critico'
+      true
+    else
+      false
+    end
+  end
+
+  def todaysbugs
+    @category = Category.find(params[:id])
+    @bug = Bug.find(params[:bug_id])
+    @bugs.category.where(today: true)
   end
 
   private

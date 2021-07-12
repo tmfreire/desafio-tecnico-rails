@@ -5,6 +5,7 @@
       <ul class="list-group">
         <% @bugs.each do |bug| %>
           <li class="list-group-item">
+            <%= bug.id %>
             <%= link_to bug.title, bug_path(bug) %>
           </li>
         <% end %>
@@ -12,4 +13,18 @@
       <%= link_to "Novo Bug", new_bug_path, class: 'btn btn-primary' %>
     </div>
   </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+      <h1>Bugs que devem ser resolvidos hoje</h1>
+
+      <% @bugs.todaysbugs.each do |bug| %>
+        <li class="list-group-item">
+          <p><%= bug.id %></p>
+        </li>
+      <% end %>
+
+    </div>
+  </div>
+
 </div>
