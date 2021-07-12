@@ -10,13 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_12_143851) do
+ActiveRecord::Schema.define(version: 2021_07_12_145541) do
 
   create_table "bugs", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "today", default: false
   end
 
   create_table "categories", force: :cascade do |t|
@@ -25,6 +24,7 @@ ActiveRecord::Schema.define(version: 2021_07_12_143851) do
     t.integer "bug_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "today", default: false
     t.index ["bug_id"], name: "index_categories_on_bug_id"
   end
 
