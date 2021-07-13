@@ -11,14 +11,10 @@ class CategoriesController < ApplicationController
   end
 
   def today?
-    # @category.update(today: true)
-    if params[:name] == 'normal' && params[:age] >= 3
-      true
-    elsif params[:name] == 'critico'
-      true
-    else
+    if params[:name] == 'normal' && params[:age] < 3
       false
-    end
+    else
+      true
   end
 
   def todaysbugs
